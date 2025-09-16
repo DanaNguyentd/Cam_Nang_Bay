@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+option java_package = "com.example.hotrobay.data";
+option java_multiple_files = true;
+
+message Flight {
+  string flightNumber = 1;
+  string departureTime = 2;
+  string arrivalTime = 3;
+  string departureAirport = 4;
+  string departureiataCode = 5;
+  string departureCountry = 6;
+  string arrivalAirport = 7;
+  string arrivaliataCode = 8;
+  string arrivalCountry = 9;
+}
+
+message FlightList {
+  repeated Flight flights = 1;
+}

@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Cẩm Nang Bay</string>
+    <string name="main">Main</string>
+    <string name="setting">Setting</string>
+    <string name="FlightInfo">Flight Information</string>
+    <string name="AtAirPort">At The Airport</string>
+    <string name="InAirPlane">In The Air Plane</string>
+</resources>
