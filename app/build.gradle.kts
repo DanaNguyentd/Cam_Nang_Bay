@@ -73,7 +73,7 @@ dependencies {
     // Proto DataStore
     implementation("androidx.datastore:datastore:1.0.0")
 
-// Proto serialization
+    // Proto serialization
     implementation("com.google.protobuf:protobuf-javalite:3.18.0")
 
     // Navigation
@@ -84,6 +84,10 @@ dependencies {
 
     //Icons extra
     implementation ("androidx.compose.material:material-icons-extended:1.5.4")
+    implementation(libs.androidx.foundation.android)
+
+    //For Offline Google Translate
+    implementation ("com.google.mlkit:translate:17.0.1")
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

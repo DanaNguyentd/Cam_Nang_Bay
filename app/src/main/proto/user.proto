@@ -1,0 +1,34 @@
+syntax = "proto3";
+
+option java_package = "com.example.hotrobay.userdata";
+option java_multiple_files = true;
+
+// User personal information
+message User {
+  string first_name = 1;
+  string last_name = 2;
+  string birthday = 3;         // could also use google.protobuf.Timestamp
+  string nationality = 4;
+  string gender = 5;
+
+  // Passport details
+  string passport_id = 6;
+  string passport_expiry_date = 7;
+
+  // Address
+  string address = 8;         
+
+  // Medical history
+  MedicalHistory medical_history = 9;
+
+  // List of contact numbers
+  repeated string contact_numbers = 10;
+}
+
+// Nested message for medical details
+message MedicalHistory {
+  repeated string medications = 11;   // Current medications
+  repeated string diseases = 12;      // Past or chronic diseases
+  repeated string allergies = 13;     // Known allergies
+  string blood_type = 14;     // Known allergies
+}

@@ -16,8 +16,6 @@ import androidx.compose.foundation.layout.wrapContentWidth
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.BottomAppBar
-import androidx.compose.material3.Button
-import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -76,7 +74,7 @@ fun  FlightInformation(
                     ) {
                         Text(
                             "Thông Tin Chuyến Bay",
-                            fontSize = 20.sp,
+                            fontSize = 23.sp,
                             color = Color(0xFF448AFF),
                             fontWeight = FontWeight.ExtraBold
                         )
@@ -258,7 +256,7 @@ private fun CreateFlightCard(
                 Text(
                     text = if (totalFlights == 1) "✈\uFE0F Chuyến bay" else "✈\uFE0F Chuyến số $index",
                     color = Color(0xFF6200EA),
-                    fontSize = 20.sp,
+                    fontSize = 22.sp,
                     fontWeight = FontWeight.Bold,
                     textAlign = TextAlign.Center,
                     modifier = Modifier.fillMaxWidth()
@@ -419,33 +417,6 @@ fun FlightTimeVietnam(
         fontStyle = FontStyle.Italic,
         modifier = Modifier.fillMaxWidth()
     )
-}
-
-@Composable
-private fun CreateBnt(
-    clickedFn: () -> Unit,
-    imgID: Int
-){
-    Button(
-        onClick = clickedFn,
-        colors = ButtonDefaults.buttonColors(
-            containerColor = Color.Transparent,  // No background color
-            contentColor = Color.Unspecified),   // Let image color be normal
-        modifier = Modifier
-            .fillMaxWidth() // Or .weight(1f) if inside Row
-    ) {
-        Column(
-            horizontalAlignment = Alignment.CenterHorizontally
-        ){
-            Image(
-                painter = painterResource(id = imgID),
-                contentDescription = "Row 1 image",
-                modifier = Modifier
-                    .fillMaxWidth()    // Optionally fill width, or set width explicitly
-                    .clip(RoundedCornerShape(16.dp))  // Adjust the corner radius as you like
-            )
-        }
-    }
 }
 
 @Composable

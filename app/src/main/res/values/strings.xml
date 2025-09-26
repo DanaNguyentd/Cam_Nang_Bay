@@ -5,4 +5,10 @@
     <string name="FlightInfo">Flight Information</string>
     <string name="AtAirPort">At The Airport</string>
     <string name="InAirPlane">In The Air Plane</string>
+    <string name="UserInformation">User Information</string>
+    <string name="UserMainScreen">UserMainScreen</string>
+    <string name="GeneralInformation">GeneralInformation</string>
+    <string name="MedicineInformation">MedicineInformation</string>
+    <string name="ContactInformation">ContactInformation</string>
+    <string name="SetupInformation">SetupInformation</string>
 </resources>

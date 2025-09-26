@@ -135,7 +135,7 @@ fun InAirPlane(
                     ) {
                         Text(
                             "Trên Máy Bay",
-                            fontSize = 30.sp,
+                            fontSize = 23.sp,
                             color = Color(0xFF448AFF),
                             fontWeight = FontWeight.ExtraBold
                         )
@@ -207,7 +207,7 @@ fun InAirPlane(
                             text = "Could you please tap the food options on my phone so I can understand what are available?",
                             modifier = Modifier.padding(start = 10.dp, end = 10.dp, top = 10.dp),
                             color = Color.Black,
-                            fontSize = 15.sp,
+                            fontSize = 18.sp,
                             fontWeight = FontWeight.Normal,
                             textAlign = TextAlign.Start
                         )
@@ -325,7 +325,7 @@ fun DishRow(
         Text(
             text = textStrVN,
             color = Color.Black,
-            fontSize = 15.sp,
+            fontSize = 18.sp,
             fontWeight = FontWeight.Bold
         )
 
@@ -430,33 +430,6 @@ fun SelectableButton(
 }
 
 @Composable
-private fun CreateBnt(
-    clickedFn: () -> Unit,
-    imgID: Int
-){
-    Button(
-        onClick = clickedFn,
-        colors = ButtonDefaults.buttonColors(
-            containerColor = Color.Transparent,  // No background color
-            contentColor = Color.Unspecified),   // Let image color be normal
-        modifier = Modifier
-            .fillMaxWidth() // Or .weight(1f) if inside Row
-    ) {
-        Column(
-            horizontalAlignment = Alignment.CenterHorizontally
-        ){
-            Image(
-                painter = painterResource(id = imgID),
-                contentDescription = "Row 1 image",
-                modifier = Modifier
-                    .fillMaxWidth()    // Optionally fill width, or set width explicitly
-                    .clip(RoundedCornerShape(16.dp))  // Adjust the corner radius as you like
-            )
-        }
-    }
-}
-
-@Composable
 private fun ColumnItem(
     tts: TextToSpeech,
     index: Int,
@@ -480,11 +453,11 @@ private fun ColumnItem(
         Column(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(start = 5.dp, end = 10.dp, top = 5.dp)
+                .padding(start = 8.dp, end = 5.dp, top = 8.dp)
         ) {
             Text(
                 "🇻🇳 ${VietnameseInAirPlaneList[index]}",
-                fontSize = 13.sp,
+                fontSize = 15.sp,
                 color = Color(0xFF6200EA),
                 fontWeight = FontWeight.Bold
             )
@@ -495,7 +468,7 @@ private fun ColumnItem(
             ) {
                 Text(
                     "\uD83C\uDDFA\uD83C\uDDF8 ${EnglishInAirPlaneList[index]}",
-                    fontSize = 8.sp,
+                    fontSize = 9.sp,
                     color = Color(0xFF6200EA),
                     fontWeight = FontWeight.Medium
                 )

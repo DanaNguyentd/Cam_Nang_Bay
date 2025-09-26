@@ -1,20 +1,10 @@
 package com.example.hotrobay
 
 import androidx.annotation.StringRes
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalInspectionMode
-import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
@@ -24,6 +14,7 @@ import com.example.hotrobay.navigators.FlightInformation
 import com.example.hotrobay.navigators.InAirPlane
 import com.example.hotrobay.navigators.MainScreen
 import com.example.hotrobay.navigators.SettingScreen
+import com.example.hotrobay.navigators.userNavigators.UserInformation
 
 /**
  * enum values that represent the screens in the app
@@ -34,6 +25,7 @@ enum class HoTroBayScreen(@StringRes val title:Int) {
     FlightInfo(R.string.FlightInfo),
     AtAirPort(R.string.AtAirPort),
     InAirPlane(R.string.InAirPlane),
+    UserInformation(R.string.UserInformation),
     SettingScreen(R.string.setting)
 }
 
@@ -52,14 +44,14 @@ fun HoTroBayApp() {
             startDestination = HoTroBayScreen.MainScreen.name,
             modifier = Modifier
                 .fillMaxSize()
-                .padding(5.dp)
         ) {
             composable(route = HoTroBayScreen.MainScreen.name) {
                 MainScreen(
-                    onSettingClicked    = { navController.navigate(HoTroBayScreen.SettingScreen.name) },
-                    onFlightInfoClicked = { navController.navigate(HoTroBayScreen.FlightInfo.name)},
-                    onAtAirPortClicked  = { navController.navigate(HoTroBayScreen.AtAirPort.name)},
-                    inAirPlaneClicked   = { navController.navigate(HoTroBayScreen.InAirPlane.name)}
+                    onSettingClicked       = { navController.navigate(HoTroBayScreen.SettingScreen.name) },
+                    onFlightInfoClicked    = { navController.navigate(HoTroBayScreen.FlightInfo.name)},
+                    onAtAirPortClicked     = { navController.navigate(HoTroBayScreen.AtAirPort.name)},
+                    inAirPlaneClicked      = { navController.navigate(HoTroBayScreen.InAirPlane.name)},
+                    userInformationClicked = { navController.navigate(HoTroBayScreen.UserInformation.name)},
                 )
             }
 
@@ -84,6 +76,12 @@ fun HoTroBayApp() {
                     mainScreenClicked = { navController.navigate(HoTroBayScreen.MainScreen.name) },
                     flightInfoClicked = { navController.navigate(HoTroBayScreen.FlightInfo.name) },
                     atAirPortClicked  = { navController.navigate(HoTroBayScreen.AtAirPort.name)}
+                )
+            }
+
+            composable(route = HoTroBayScreen.UserInformation.name) {
+                UserInformation(
+                    mainScreenClicked = { navController.navigate(HoTroBayScreen.MainScreen.name) }
                 )
             }
 

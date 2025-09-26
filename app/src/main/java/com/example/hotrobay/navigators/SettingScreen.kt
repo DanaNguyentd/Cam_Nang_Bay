@@ -9,10 +9,8 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.IntrinsicSize
-import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -31,10 +29,8 @@ import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.HorizontalDivider
-import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
-import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
@@ -46,7 +42,6 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.clip
 import androidx.compose.ui.focus.onFocusChanged
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
@@ -63,7 +58,6 @@ import com.example.hotrobay.R
 import com.example.hotrobay.data.Flight
 import com.example.hotrobay.data.FlightViewModel
 import com.example.hotrobay.data.airportMap
-import java.lang.String.format
 import java.text.SimpleDateFormat
 import java.util.Locale
 
@@ -77,17 +71,17 @@ fun SettingScreen (
 
     var itemCount by remember { mutableIntStateOf(1) } // start with 1 item
 
-    var flightNumbers = remember { mutableStateListOf<String>() }
-    var departureDate = remember { mutableStateListOf<String>() }
-    var departureTime = remember { mutableStateListOf<String>() }
-    var arrivalDate = remember { mutableStateListOf<String>() }
-    var arrivalTime = remember { mutableStateListOf<String>() }
-    var departureAirport = remember { mutableStateListOf<String>() }
-    var departureIataCode = remember { mutableStateListOf<String>() }
-    var departureCountry = remember { mutableStateListOf<String>() }
-    var arrivalAirport = remember { mutableStateListOf<String>() }
-    var arrivalIataCode = remember { mutableStateListOf<String>() }
-    var arrivalCountry = remember { mutableStateListOf<String>() }
+    val flightNumbers = remember { mutableStateListOf<String>() }
+    val departureDate = remember { mutableStateListOf<String>() }
+    val departureTime = remember { mutableStateListOf<String>() }
+    val arrivalDate = remember { mutableStateListOf<String>() }
+    val arrivalTime = remember { mutableStateListOf<String>() }
+    val departureAirport = remember { mutableStateListOf<String>() }
+    val departureIataCode = remember { mutableStateListOf<String>() }
+    val departureCountry = remember { mutableStateListOf<String>() }
+    val arrivalAirport = remember { mutableStateListOf<String>() }
+    val arrivalIataCode = remember { mutableStateListOf<String>() }
+    val arrivalCountry = remember { mutableStateListOf<String>() }
 
     Scaffold(
         topBar = {
@@ -108,13 +102,13 @@ fun SettingScreen (
                                 painter = painterResource(id = R.drawable.setting),
                                 contentDescription = "setting image",
                                 contentScale = ContentScale.Fit, // Ensures image fits nicely
-                                modifier = Modifier.size(40.dp) // control size of the image
+                                modifier = Modifier.size(60.dp) // control size of the image
                             )
                             Spacer(modifier = Modifier.width(20.dp)) // small gap between image and text
                             Text(
                                 text = "Cài Đặt Thông Tin",
                                 color = Color(0xFF6200EA),
-                                fontSize = 20.sp,
+                                fontSize = 23.sp,
                                 fontWeight = FontWeight.SemiBold,
                             )
                         }
@@ -183,7 +177,7 @@ fun SettingScreen (
                         Text(
                             text = "Chuyến số ${index + 1}",
                             color = Color(0xFF6200EA),
-                            fontSize = 15.sp,
+                            fontSize = 18.sp,
                             fontWeight = FontWeight.Bold,
                             textAlign = TextAlign.Center,
                             modifier = Modifier.fillMaxWidth()
@@ -204,7 +198,7 @@ fun SettingScreen (
                         Text(
                             text = "---KHỞI HÀNH---",
                             color = Color(0xFF6200EA),
-                            fontSize = 10.sp,
+                            fontSize = 15.sp,
                             fontWeight = FontWeight.SemiBold,
                             textAlign = TextAlign.Start,
                             modifier = Modifier.fillMaxWidth()
@@ -261,7 +255,7 @@ fun SettingScreen (
                         Text(
                             text = "---HẠ CÁNH---",
                             color = Color(0xFF6200EA),
-                            fontSize = 10.sp,
+                            fontSize = 15.sp,
                             fontWeight = FontWeight.SemiBold,
                             textAlign = TextAlign.Start,
                             modifier = Modifier.fillMaxWidth()
@@ -338,7 +332,7 @@ fun SettingScreen (
                         Text(
                             "➕ Thêm Nối Chuyến Bay Kế Tiếp",
                             color = Color(0xFF6200EA),
-                            fontSize = 11.sp,
+                            fontSize = 15.sp,
                             fontWeight = FontWeight.Bold,
                             textAlign = TextAlign.Start,
                             modifier = Modifier.fillMaxWidth()
@@ -414,7 +408,7 @@ fun SettingScreen (
                     ) {
                         Text(
                             "Lưu",
-                            fontSize = 10.sp,
+                            fontSize = 15.sp,
                             fontWeight = FontWeight.Bold
                         )
                     }
@@ -442,13 +436,13 @@ private fun InputRow(
             .padding(vertical = 1.dp),
     ) {
         Text("•", fontSize = 20.sp, modifier = Modifier.padding(end = 8.dp))
-        Text(label, fontSize = 10.sp, modifier = Modifier.padding(end = 8.dp))
+        Text(label, fontSize = 12.sp, modifier = Modifier.padding(end = 8.dp))
 
         BasicTextField(
             value = text,
             onValueChange = { text = it.uppercase()}, // convert to uppercase
             textStyle = TextStyle(
-                fontSize = 9.sp,
+                fontSize = 12.sp,
                 fontWeight = FontWeight.Medium,
                 color = Color.Black
             ),
@@ -456,7 +450,7 @@ private fun InputRow(
             keyboardOptions = KeyboardOptions.Default,
             modifier = Modifier
                 .weight(5f)
-                .padding(end = 8.dp)
+                .padding(end = 8.dp, start = 5.dp)
                 .widthIn(min = 100.dp)
                 .height(48.dp)
                 .background(Color.Transparent, shape = RoundedCornerShape(8.dp))
@@ -478,7 +472,7 @@ private fun InputRow(
                     if (text.isEmpty()) {
                         Text(
                             text = "Enter text",
-                            fontSize = 9.sp,
+                            fontSize = 12.sp,
                             color = Color.Gray
                         )
                     }
@@ -504,7 +498,7 @@ private fun InputRow(
             modifier = Modifier
                 .width(90.dp)
         ) { Text("Thêm",
-            fontSize = 8.sp) }
+            fontSize = 10.sp) }
     }
 }
 
@@ -526,8 +520,8 @@ private fun FormattedInputRow(
             .fillMaxWidth() // important to take full width
             .padding(vertical = 4.dp)
     ) {
-        Text("•", fontSize = 20.sp, modifier = Modifier.padding(end = 8.dp))
-        Text(label, fontSize = 10.sp, modifier = Modifier.padding(end = 8.dp))
+        Text("•", fontSize = 20.sp, modifier = Modifier.padding(end = 5.dp))
+        Text(label, fontSize = 12.sp, modifier = Modifier.padding(end = 5.dp))
 
         BasicTextField(
             value = text,
@@ -543,7 +537,7 @@ private fun FormattedInputRow(
                 }
             },
             textStyle = TextStyle(
-                fontSize = 9.sp,
+                fontSize = 12.sp,
                 fontWeight = FontWeight.Medium,
                 color = Color.Black
             ),
@@ -571,7 +565,7 @@ private fun FormattedInputRow(
                     if (text.isEmpty()) {
                         Text(
                             text = format,
-                            fontSize = 7.sp,
+                            fontSize = 12.sp,
                             color = Color.Gray
                         )
                     }
@@ -600,7 +594,7 @@ private fun FormattedInputRow(
         ) {
             Text(
                 "Thêm",
-                fontSize = 8.sp,
+                fontSize = 10.sp,
             )
         }
     }
@@ -612,32 +606,5 @@ private fun DetailRow(
 ) {
     Row(verticalAlignment = Alignment.CenterVertically, modifier = Modifier.padding(vertical = 4.dp)) {
         Text(label, fontSize = 18.sp, modifier = Modifier.padding(end = 8.dp))
-    }
-}
-
-@Composable
-private fun CreateBnt(
-    clickedFn: () -> Unit,
-    imgID: Int
-){
-    Button(
-        onClick = clickedFn,
-        colors = ButtonDefaults.buttonColors(
-            containerColor = Color.Transparent,  // No background color
-            contentColor = Color.Unspecified),   // Let image color be normal
-        modifier = Modifier
-            .fillMaxWidth() // Or .weight(1f) if inside Row
-    ) {
-        Column(
-            horizontalAlignment = Alignment.CenterHorizontally
-        ){
-            Image(
-                painter = painterResource(id = imgID),
-                contentDescription = "Row 1 image",
-                modifier = Modifier
-                    .fillMaxWidth()    // Optionally fill width, or set width explicitly
-                    .clip(RoundedCornerShape(16.dp))  // Adjust the corner radius as you like
-            )
-        }
     }
 }
